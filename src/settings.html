@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Family Tree Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../assets/css/settings.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Settings</a>
+        </div>
+    </nav>
+
+
+
+
+
+    <div class="col s12">
+        Set Number of Generations
+        <div class="input-field inline">
+            <form action="#">
+                <p class="range-field">
+                    <input type="range" id="reqNumGen" min="1" max="30" value="6" class="slider">
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <div class="col s12">
+        Set Frame Rate
+        <div class="input-field inline">
+            <form action="#">
+                <p class="range-field">
+                    <input type="range" id="reqFrameRate" min="1" max="60" value="15" class="slider">
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <div class="col s12">
+        Set Birth Rate
+        <div class="input-field inline">
+            <form action="#">
+                <p class="range-field">
+                    <input type="range" id="reqBirthRate" min="2" max="7" class="slider">
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- <label>Cuture Group</label>
+    <select class="browser-default">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+    </select> -->
+
+
+    <button class="btn waves-effect waves-teal" id="updateSettings">Update</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="settings.js"></script>
+</body>
+
+</html>
