@@ -1,7 +1,6 @@
 const electron = require('electron');
 const path = require('path');
 const BrowserWindow = electron.remote.BrowserWindow;
-const axios = require('axios');
 const ipc = electron.ipcRenderer;
 // const fileio = require('./fileio.js');
 const Person = require('./modules/person.js');
@@ -83,7 +82,10 @@ settingsBtn.addEventListener('click', function(event) {
         transparent: false,
         alwaysOnTop: true,
         width: 500,
-        height: 600
+        height: 600,
+        webPreferences: {
+          nodeIntegration: true
+          }
     })
     win.on('close', function() {
         win = null

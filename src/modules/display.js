@@ -91,7 +91,7 @@ module.exports = {
 
             draw(rootPerson, 1);
             frame = 0;
-            console.log("\n [displayTree] Number of Skips: " + numSkips + " , Number of Redraws: " + numRedraws + "\n");
+            //console.log("\n [displayTree] Number of Skips: " + numSkips + " , Number of Redraws: " + numRedraws + "\n");
         }
     }
 };
