@@ -23,10 +23,10 @@ var heightCanvas;
 // View parameters
 var xleftView = 0;
 var ytopView = 0;
-var widthViewOriginal = 1.0; //actual width and height of zoomed and panned display
-var heightViewOriginal = 1.0;
-var widthView = widthViewOriginal; //actual width and height of zoomed and panned display
-var heightView = heightViewOriginal;
+var widthViewOriginal; //actual width and height of zoomed and panned display
+var heightViewOriginal;
+var widthView; //actual width and height of zoomed and panned display
+var heightView;
 var tree;
 var preferences;
 
@@ -66,10 +66,6 @@ function setup() {
     canvas.height = window.innerHeight * preferences.zoomMod;
 
     img.src = path.join(__dirname, '../assets/images/heirCrown.png');
-}
-
-function displayEvent(event){
-    console.log(event);
 }
 
 
@@ -148,8 +144,6 @@ ipc.on('frameRate', function(event, arg) {
 });
 //------------------------------------------------------------------------------
 
-
-
 function loadNameFile(culture, type, filename) {
     var fs = require("fs");
     console.log("\n [START] loadNameFile \n");
@@ -166,43 +160,3 @@ function coatOfArmsGen(culture) {
     newImg.src = path.join(__dirname, '../assets/images/coatofarms/german/' + randInt + '.png');
     return newImg;
 }
-// ctx.font = "10px Arial";
-// for (i = 0; i < 1; i++){
-//     var person = fnames[Math.floor(Math.random()*fnames.length)] + " of " + house;
-
-
-
-// }
-// var fnames = null;
-// var hnames = null;
-
-
-// var price = document.querySelector('h1')
-// var targetPrice = document.getElementById('targetPrice')
-// var targetPriceVal
-
-// const notification = {
-//     title: 'BTC Alert',
-//     body: 'BTC just beat your target price!',
-//     icon: path.join(__dirname, '../assets/images/btc.png')
-// }
-
-// function getBTC() {
-//     axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD')
-//         .then(res => {
-//             const cryptos = res.data.BTC.USD
-//             price.innerHTML = '$'+cryptos.toLocaleString('en')
-
-//             if (targetPrice.innerHTML != '' && targetPriceVal < res.data.BTC.USD) {
-//                 const myNotification = new window.Notification(notification.title, notification)
-//             }
-
-//         })
-// }
-// getBTC()
-// setInterval(getBTC, 10000);
-
-// ipc.on('targetPriceVal', function (event, arg) {
-//     targetPriceVal = Number(arg)
-//     targetPrice.innerHTML = '$'+targetPriceVal.toLocaleString('en')
-// })
