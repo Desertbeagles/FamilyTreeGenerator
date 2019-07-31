@@ -22,6 +22,10 @@ Future Plans:
 - Gallery
   - Will allow for the storing and importing of family trees
 
+<p align="center">
+  <img width="1000" height="450" src="docs/FamilyTreeGenaltJul31.png"></a>
+</p>
+
 # Installation
 No binarys are currently avalible at this time as the program is still in early development stages
 
