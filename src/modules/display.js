@@ -52,10 +52,14 @@ module.exports = {
                 ctx.strokeStyle = 'black';
                 var boxWidth = 30 + rootPerson.name.length * 2.2
 
+                if (rootPerson.isLeaf() && genNum != tree.size) {
+                    ctx.strokeStyle = 'red';
+                }
                 ctx.beginPath();
                 ctx.rect(x - (boxWidth / 2), y + 3, boxWidth, 10);
                 ctx.fill();
                 ctx.stroke();
+                ctx.strokeStyle = 'black';
 
                 ctx.fillStyle = colors[genNum % 6];
                 ctx.textAlign = "center";
