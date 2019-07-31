@@ -10,7 +10,7 @@ const Calc = require('./modules/displayCalculation.js');
 const Mouse = require('./modules/mouseEvents.js');
 const Display = require('./modules/display.js');
 const Preferences = require('./modules/preferences.js');
-
+const screen = electron.remote.screen;
 
 const settingsBtn = document.getElementById('settingsBtn')
 const generateBtn = document.getElementById('generateBtn')
@@ -44,6 +44,7 @@ function setup() {
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
 
+
     preferences = new Preferences();
 
     widthCanvas = canvas.width* preferences.zoomMod;
@@ -57,6 +58,7 @@ function setup() {
     canvas.addEventListener("mousemove", Mouse.handleMouseMove, false);
     canvas.addEventListener("mouseup", Mouse.handleMouseUp, false);
     canvas.addEventListener("mousewheel", Mouse.handleMouseWheel, false); // mousewheel duplicates dblclick functio
+    // canvas.addEventListener("click", displayEvent, false);
 
     ctx.font = "14px Arial";
     ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -66,6 +68,9 @@ function setup() {
     img.src = path.join(__dirname, '../assets/images/heirCrown.png');
 }
 
+function displayEvent(event){
+    console.log(event);
+}
 
 
 //------------------------------------------------------------------------------

@@ -37,8 +37,11 @@ module.exports = {
     },
 
     handleMouseMove: function (event) {
-        var X = event.clientX - this.offsetLeft - this.clientLeft + this.scrollLeft;
-        var Y = event.clientY - this.offsetTop - this.clientTop + this.scrollTop;
+        // var X = event.clientX - this.offsetLeft - this.clientLeft + this.scrollLeft;
+        // var Y = event.clientY - this.offsetTop - this.clientTop + this.scrollTop;
+        var p = screen.getCursorScreenPoint();
+        var X = p.x;
+        var Y = p.y;
 
         if (mouseDown) {
             var dx = (X - lastX) / widthCanvas * widthView;

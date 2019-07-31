@@ -13,6 +13,8 @@ const ipc = require('electron').ipcMain
 // be closed automatically when the JavaScript object is garbage collected.
 let win
 
+ // app.disableHardwareAcceleration();
+
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({width: 1200, height: 650, webPreferences: {

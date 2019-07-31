@@ -23,7 +23,8 @@ class Tree {
             this.generateChildren(this.rootPerson, 1);
         }
         this.calculateHeirs(this.rootPerson, 1);
-        this.cleanTree(this.rootPerson);
+        // this.cleanTree(this.rootPerson);
+        this.calculateHouses(this.rootPerson);
         Calc.calcInitalX(this.rootPerson);
         Calc.checkAllChildrenOnScreen(this.rootPerson);
         Calc.calculateFinalPositions(this.rootPerson, 0);
@@ -73,6 +74,19 @@ class Tree {
         return array[Math.floor((Math.random() * 12) + 0)];
     }
 
+    calculateHouses(rootPerson){
+        if(rootPerson.getPreviousSibling() != null){
+            if(rootPerson.getPreviousSibling().isHeir && calcSizeOfTree(rootPerson) > 10){
+                rootPerson.houseID = this.houses.length;
+                rootPerson.isHouseHead = true;
+                this.houses[rootPerson.houseID] = new House(this.hnames[Math.floor(Math.random()*this.hnames.length)], this.culture);
+            }
+        }
+        for (var i = 0; i < rootPerson.children.length; i += 1){
+            this.calculateHouses(rootPerson.children[i]);
+        }
+    }
+
     calculateHeirs(rootPerson, currentGen){
         if(!heirCalc){
             rootPerson.isDisplayed = true;
@@ -80,11 +94,11 @@ class Tree {
             if(currentGen > maxGenDepth){
                 rootPerson.isHeir = true;
                 maxGenDepth = currentGen;
-                if(currentGen > 5 && (!rootPerson.parent.isHeir) && (!rootPerson.parent.parent.isHeir)){
-                    rootPerson.parent.parent.houseID = this.houses.length;
-                    rootPerson.parent.parent.isHouseHead = true;
-                    this.houses[rootPerson.parent.parent.houseID] = new House(this.hnames[Math.floor(Math.random()*this.hnames.length)], this.culture);
-                }
+                // if(currentGen > 5 && (!rootPerson.parent.isHeir) && (!rootPerson.parent.parent.isHeir)){
+                //     rootPerson.parent.parent.houseID = this.houses.length;
+                //     rootPerson.parent.parent.isHouseHead = true;
+                //     this.houses[rootPerson.parent.parent.houseID] = new House(this.hnames[Math.floor(Math.random()*this.hnames.length)], this.culture);
+                // }
             }
             console.log("\n [calculateHeirs] " + rootPerson.name + " is an heir \n");
             if (currentGen == this.size){
