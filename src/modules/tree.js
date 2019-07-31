@@ -14,7 +14,6 @@ class Tree {
     }
 
     setup(){
-        foundHeir = false;
         heirCalc = false;
         maxGenDepth = 0;
         this.houses[0] = new House(this.hnames[Math.floor(Math.random()*this.hnames.length)], this.culture);
@@ -23,12 +22,12 @@ class Tree {
             this.generateChildren(this.rootPerson, 1);
         }
         this.calculateHeirs(this.rootPerson, 1);
-        // this.cleanTree(this.rootPerson);
         this.calculateHouses(this.rootPerson);
+        this.matchHouses(this.rootPerson);
+        this.cleanTree(this.rootPerson);
         Calc.calcInitalX(this.rootPerson);
         Calc.checkAllChildrenOnScreen(this.rootPerson);
         Calc.calculateFinalPositions(this.rootPerson, 0);
-        this.matchHouses(this.rootPerson);
         this.fnames = null;
         this.hnames = null;
         console.log("\n Generated Family Tree Containing: " + calcSizeOfTree(this.rootPerson) + " people\n");
@@ -54,13 +53,12 @@ class Tree {
     }
 
     cleanTree(rootPerson){
-        foundHeir = false;
-        foundHeir = false;
-        if(!containsHeir(rootPerson) && calcSizeOfTree(rootPerson) > 20 && this.numPeople > 50){
-            foundHeir = false;
+        var size = calcSizeOfTree(rootPerson);
+        if(!containsHeir(rootPerson) && size > 20 && this.numPeople > 50){
             toggleDisplay(rootPerson);
             rootPerson.isDisplayed = true;
             console.log("\n [cleanTree] Cleaned tree of " + rootPerson + " containing: " + calcSizeOfTree(rootPerson) + " people \n");
+            rootPerson.name += " (" + size + ")";
         }
         else {
             for (var i = 0; i < rootPerson.children.length; i++){
@@ -146,20 +144,29 @@ function calcSizeOfTree(rootPerson){
 }
 
 
-var foundHeir = false;
+var foundHeir;
 function containsHeir(rootPerson){
-    if(!foundHeir){
-        if (rootPerson.isHeir){
-            foundHeir = true;
-            return true;
-        }
-        else if (rootPerson.children.length == 0){
-            return false;
-        }
-        else {
-            for(var i = 0; i < rootPerson.children.length; i++){
-                containsHeir(rootPerson.children[i]);
-            }
+    if(rootPerson.isHeir){
+        return true;
+    }
+    foundHeir = false;
+    for(var i = 0; i < rootPerson.children.length; i++){
+        containsHeirHelper(rootPerson.children[i]);
+    }
+    return foundHeir;
+}
+
+function containsHeirHelper(rootPerson){
+    if (rootPerson.isHeir){
+        foundHeir = true;
+        return;
+    }
+    else if (rootPerson.children.length == 0){
+        return;
+    }
+    else {
+        for(var i = 0; i < rootPerson.children.length; i++){
+            containsHeirHelper(rootPerson.children[i]);
         }
     }
 }
