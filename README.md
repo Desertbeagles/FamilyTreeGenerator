@@ -21,7 +21,9 @@ Future Plans:
   - Makes nodes of the tree clickable allowing the user to customize nodes in the tree
 - Gallery
   - Will allow for the storing and importing of family trees
-
+- Optimization
+  - Optmizing canvas redrawing
+  - Optmizing canvas Pan & Zoom
 <p align="center">
   <img width="1000" height="450" src="docs/FamilyTreeGenaltJul31.png"></a>
 </p>
