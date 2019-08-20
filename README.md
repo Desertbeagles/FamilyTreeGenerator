@@ -2,7 +2,7 @@
 <p>Application for creating randomly generated family trees.</p>
 <p>Early Work-In-Progress.</p>
 <p align="center">
-  <img width="1000" height="600" src="docs/screen1.png"></a>
+  <img width="1000" height="577" src="docs/screen1.png"></a>
 </p>
 
 Current Features:
@@ -25,7 +25,7 @@ Future Plans:
   - Optmizing canvas redrawing
   - Optmizing canvas Pan & Zoom
 <p align="center">
-  <img width="1000" height="450" src="docs/screen2.png"></a>
+  <img width="1000" height="585" src="docs/screen2.png"></a>
 </p>
 
 # Installation
