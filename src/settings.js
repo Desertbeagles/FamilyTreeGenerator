@@ -33,7 +33,7 @@ sliderBR.oninput = function() {
 }
 
 var sliderGen = document.getElementById("reqNumGen");
-var outputGen = document.getElementById("currBirthRate");
+var outputGen = document.getElementById("currNumGen");
 
 outputGen.innerHTML = sliderGen.value;
 
@@ -42,7 +42,7 @@ sliderGen.oninput = function() {
 }
 
 var sliderFrame = document.getElementById("reqFrameRate");
-var outputFrame = document.getElementById("currBirthRate");
+var outputFrame = document.getElementById("currFramRate");
 
 outputFrame.innerHTML = sliderFrame.value;
 

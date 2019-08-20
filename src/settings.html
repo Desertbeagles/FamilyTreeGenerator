@@ -3,49 +3,46 @@
 
 <head>
     <title>Family Tree Generator</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/settings.css">
 </head>
 
 <body>
     <nav>
-        <div class="nav-wrapper">
+        <div class="navbar navbar-dark bg-dark">
             <a href="#" class="brand-logo">Settings</a>
         </div>
     </nav>
 
 
-
-
-
     <div class="col s12">
-        Set Number of Generations
+        <p>Number of Generations: <span id = "currNumGen"></span></p>
         <div class="input-field inline">
             <form action="#">
                 <p class="range-field">
-                    <input type="range" id="reqNumGen" min="1" max="30" value="6" class="slider">
+                    <input type="range" class="custom-range" id="reqNumGen" min="1" max="30" value="6">
                 </p>
             </form>
         </div>
     </div>
 
     <div class="col s12">
-        Set Frame Rate
+        <p>Frame Rate: <span id = "currFramRate"></span></p>
         <div class="input-field inline">
             <form action="#">
                 <p class="range-field">
-                    <input type="range" id="reqFrameRate" min="1" max="60" value="15" class="slider">
+                    <input type="range" id="reqFrameRate" min="1" max="60" value="15" class="custom-range">
                 </p>
             </form>
         </div>
     </div>
 
     <div class="col s12">
-        Set Birth Rate
+        <p>Birth Rate: <span id = "currBirthRate"></span></p>
         <div class="input-field inline">
             <form action="#">
                 <p class="range-field">
-                    <input type="range" id="reqBirthRate" min="2" max="7" class="slider">
+                    <input type="range" id="reqBirthRate" min="2" max="7" class="custom-range">
                 </p>
             </form>
         </div>
@@ -60,8 +57,7 @@
     </select> -->
 
 
-    <button class="btn waves-effect waves-teal" id="updateSettings">Update</button>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <button class="btn btn-success" id="updateSettings">Update</button>
     <script src="settings.js"></script>
 </body>
 
