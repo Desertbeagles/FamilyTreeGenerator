@@ -68,7 +68,7 @@ class Tree {
     }
 
     rollChildren(){
-        var array = [0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 4];
+        var array = preferences.rollDie[preferences.rollNum];
         return array[Math.floor((Math.random() * 12) + 0)];
     }
 

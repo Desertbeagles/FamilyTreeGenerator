@@ -8,54 +8,67 @@
 </head>
 
 <body>
-    <nav>
-        <div class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Settings</a>
+        <nav>
+            <div class="navbar navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Settings</a>
+            </div>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-tree" role="tab" aria-controls="nav-tree" aria-selected="true">Tree</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-culture" role="tab" aria-controls="nav-culture" aria-selected="false">Culture</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-???" role="tab" aria-controls="nav-???" aria-selected="false">???</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-system" role="tab" aria-controls="nav-system" aria-selected="false">System</a>
         </div>
-    </nav>
+        </nav>
+
+        <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-tree" role="tabpanel" aria-labelledby="nav-tree-tab">
+            <div class="col s12">
+                <p>Number of Generations: <span id = "currNumGen"></span></p>
+                <div class="input-field inline">
+                    <form action="#">
+                        <p class="range-field">
+                            <input type="range" class="custom-range" id="reqNumGen" min="1" max="30">
+                        </p>
+                    </form>
+                </div>
+            </div>
 
 
-    <div class="col s12">
-        <p>Number of Generations: <span id = "currNumGen"></span></p>
-        <div class="input-field inline">
-            <form action="#">
-                <p class="range-field">
-                    <input type="range" class="custom-range" id="reqNumGen" min="1" max="30" value="6">
-                </p>
-            </form>
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Birth Rate
+                    <span id = "currRollDie"></span>
+                </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <button class="dropdown-item" type="button" id = "rollBtn0">LOW</button>
+                    <button class="dropdown-item" type="button" id = "rollBtn1">NORMAL</button>
+                    <button class="dropdown-item" type="button" id = "rollBtn2">HIGH</button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" type="button">Something else here</button>
+                </div>
+            </div>
+
+
+
         </div>
-    </div>
-
-    <div class="col s12">
-        <p>Frame Rate: <span id = "currFramRate"></span></p>
-        <div class="input-field inline">
-            <form action="#">
-                <p class="range-field">
-                    <input type="range" id="reqFrameRate" min="1" max="60" value="15" class="custom-range">
-                </p>
-            </form>
+        <div class="tab-pane fade" id="nav-culture" role="tabpanel" aria-labelledby="nav-culture-tab">45645645645645</div>
+        <div class="tab-pane fade" id="nav-???" role="tabpanel" aria-labelledby="nav-???-tab">67876867867</div>
+        <div class="tab-pane fade" id="nav-system" role="tabpanel" aria-labelledby="nav-system-tab">
+            <div class="col s12">
+                <p>Frame Rate: <span id = "currFramRate"></span></p>
+                <div class="input-field inline">
+                    <form action="#">
+                        <p class="range-field">
+                            <input type="range" id="reqFrameRate" min="1" max="60" class="custom-range">
+                        </p>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="col s12">
-        <p>Birth Rate: <span id = "currBirthRate"></span></p>
-        <div class="input-field inline">
-            <form action="#">
-                <p class="range-field">
-                    <input type="range" id="reqBirthRate" min="2" max="7" class="custom-range">
-                </p>
-            </form>
         </div>
-    </div>
 
-    <!-- <label>Cuture Group</label>
-    <select class="browser-default">
-        <option value="" disabled selected>Choose your option</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-    </select> -->
-
+    <script src="scripts/bootstrapStartUp.js"></script>
 
     <button class="btn btn-outline-primary" id="updateSettings">Update</button>
     <script src="settings.js"></script>

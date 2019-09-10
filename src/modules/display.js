@@ -38,7 +38,7 @@ module.exports = {
                 if (rootPerson.isHeir) {
                     ctx.strokeStyle = '#ffa000';
                 }
-                ctx.fillStyle = 'lightgray';
+                ctx.fillStyle = '#e0e0e0';
                 ctx.beginPath();
                 ctx.arc(x, y - 3, 15, 0, 2 * Math.PI);
                 ctx.fill();
@@ -99,6 +99,6 @@ module.exports = {
     }
 };
 
-var colors = ["blue", "green", "red", "purple", "black", "brown"]
+var colors = ["#1565c0", "#2e7d32", "#c62828", "#6a1b9a", "#ad1457", "#4e342e"]
 var numRedraws = 0;
 var numSkips = 0;

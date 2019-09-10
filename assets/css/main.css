@@ -3,6 +3,11 @@ div.row {
     text-align: center;
     font-size: 20px;
 }
+.navbar-default {
+    border-color: red;
+    color: #fafafa;
+    background-color:#4c4c4c;
+}
 
 #id {
     margin: 0%;

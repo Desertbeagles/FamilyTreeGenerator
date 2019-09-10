@@ -92,6 +92,9 @@ settingsBtn.addEventListener('click', function(event) {
         win = null
     })
     win.loadURL(modalPath)
+    win.webContents.on('did-finish-load', () => {
+        win.webContents.send('updateSettings', preferences)
+    })
     win.show()
 });
 
@@ -130,9 +133,9 @@ ipc.on('numberOfGenerations', function(event, arg) {
 });
 
 ipc.on('birthRate', function(event, arg) {
-    if (arg != 0) {
-        preferences.birthRate = Number(arg);
-        console.log("\n birthRate = " + arg + " \n");
+    if (arg < 5) {
+        preferences.rollNum = Number(arg);
+        console.log("\n rollNum = " + arg + " \n");
     }
 });
 

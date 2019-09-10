@@ -11,26 +11,49 @@ const ipc = electron.ipcRenderer;
 //     window.close();
 // });
 
+electron.ipcRenderer.on('updateSettings', (event, message) => {
+    outputGen.innerHTML = message.setNumGenerations;
+    outputFrame.innerHTML = message.frameRate;
+    sliderGen.value = message.setNumGenerations;
+    sliderFrame.value = message.frameRate;
+    currentRollDie.innerHTML = rollArray[message.rollNum];
+    rollValue = message.rollNum;
+});
+
+
 var updateBtn = document.getElementById('updateSettings');
 
 
 updateBtn.addEventListener('click', function() {
     console.log("\n Settings Updated \n");
     ipc.send('request-Number-Generations', document.getElementById('reqNumGen').value);
-    ipc.send('request-Birth-Rate', document.getElementById('reqBirthRate').value);
+    ipc.send('request-Birth-Rate', rollValue);
     ipc.send('request-Frame-Rate', document.getElementById('reqFrameRate').value);
     var window = remote.getCurrentWindow();
     window.close();
 });
 
-var sliderBR = document.getElementById("reqBirthRate");
-var outputBR = document.getElementById("currBirthRate");
+var rollValue;
 
-outputBR.innerHTML = sliderBR.value;
+var rollBtn0 = document.getElementById('rollBtn0');
+var rollBtn1 = document.getElementById('rollBtn1');
+var rollBtn2 = document.getElementById('rollBtn2');
+var currentRollDie = document.getElementById('currRollDie');
+var rollArray = ["LOW", "NORMAL", "HIGH"];
 
-sliderBR.oninput = function() {
-  outputBR.innerHTML = this.value;
-}
+rollBtn0.addEventListener('click', function() {
+    currentRollDie.innerHTML = rollArray[0];
+    rollValue = 0;
+});
+rollBtn1.addEventListener('click', function() {
+    currentRollDie.innerHTML = rollArray[1];
+    rollValue = 1;
+});
+rollBtn2.addEventListener('click', function() {
+    currentRollDie.innerHTML = rollArray[2];
+    rollValue = 2;
+});
+
 
 var sliderGen = document.getElementById("reqNumGen");
 var outputGen = document.getElementById("currNumGen");
