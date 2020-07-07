@@ -12,7 +12,7 @@
   "author": "Patrick Dalesio",
   "license": "MIT",
   "dependencies": {
-    "electron": "^5.0.5",
+    "electron": "^9.1.0",
     "panzoom": "^8.1.1",
     "semantic-ui": "^2.4.2"
   }
